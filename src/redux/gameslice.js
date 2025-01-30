@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import AddGame from '../components/AddGame'
 
 export const counterSlice = createSlice({
   name: 'counter',
@@ -13,16 +14,16 @@ export const counterSlice = createSlice({
       // immutable state based off those changes
       state.value += 1
     },
-    decrement: state => {
-      state.value -= 1
+    deleteGame: (state, action) => {
+      state.GameList=state.GameList.filter((el)=>el.id !== action.payload.id)
     },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload
+    addGame: (state, action) => {
+      state.GameList.push(action.payload)
     }
   }
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = counterSlice.actions
+export const { addGame, deleteGame } = gameslice.actions
 
-export default counterSlice.reducer
+export default gameslice.reducer
