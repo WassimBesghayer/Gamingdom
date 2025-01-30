@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import GameCard from './GameCard'
+import AddGame from './AddGame'
 
 function GameList() {
 
@@ -89,9 +90,12 @@ function GameList() {
 
     ])
   return (
+  <div>
+    <div><AddGame/></div>
     <div className='parent'>
        {games.map((el)=><GameCard game={el}/>)}
     </div>
+  </div>
   )
 }
 
