@@ -4,7 +4,8 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import { useDispatch } from 'react-redux';
-// import { AddGame } from '../redux/gameslice'
+import { addGame } from '../redux/gameslice';
+
 
 function AddGame() {
     const dispatch = useDispatch();
@@ -12,7 +13,7 @@ function AddGame() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const [newgame, setnewgame] = useState({
-        id:Math.random(),
+      
         name:"",
         coverUrl:"",
         description:""
@@ -55,7 +56,7 @@ function AddGame() {
           <Button variant="secondary" onClick={handleClose} style={{backgroundColor: 'red', border: 'none'}}>
             Close
           </Button>
-          <Button variant="primary" onClick={()=>{dispatch(AddGame(newgame));}}>
+          <Button variant="primary" onClick={()=>{dispatch(addGame(newgame));}}>
             Save Changes
           </Button>
         </Modal.Footer>
